@@ -1,0 +1,27 @@
+service: email-service
+
+provider:
+    name: aws
+    region: ap-south-1
+    runtime: nodejs20.x
+    iam:
+        role:
+            statements:
+                - Effect: Allow
+                  Action: ses:*
+                  Resource: "*"
+    httpApi:
+        cors: true
+
+package:
+    exclude:
+        - src/**
+        - frontend/**
+
+functions:
+    email-sender:
+        handler: dist/send-mail.handler
+        events:
+            - httpApi:
+                  method: POST
+                  path: /email-service/send

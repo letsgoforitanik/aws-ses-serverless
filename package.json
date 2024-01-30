@@ -1,0 +1,13 @@
+{
+	"name": "email-service",
+	"scripts": {
+		"deploy": "tsc && sls deploy"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.10",
+		"typescript": "^5.3.3"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.1546.0"
+	}
+}
